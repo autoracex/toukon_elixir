@@ -461,6 +461,14 @@
       75% { opacity: 1; transform: scale(1.1) rotate(270deg); }
     }
 
+    /* Enhanced Phoenix floating animation (needed when external CSS is unavailable) */
+    @keyframes phoenixFloat {
+      0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+      25% { transform: translateY(-3px) scale(1.01) rotate(0.5deg); }
+      50% { transform: translateY(-6px) scale(1.02) rotate(0deg); }
+      75% { transform: translateY(-3px) scale(1.01) rotate(-0.5deg); }
+    }
+
     /* Reduced motion support for critical animations */
     @media (prefers-reduced-motion: reduce) {
       .phoenix-wings,
