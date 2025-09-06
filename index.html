@@ -32,7 +32,7 @@
   <meta name="googlebot" content="index, follow" />
   <link rel="canonical" href="https://toukon-elixir.autoracex.dev/" />
   
-  <meta name="theme-color" content="#0b0b0b" />
+  <meta name="theme-color" content="#160a2b" />
   <link rel="icon" href="/favicon.ico" />
   <!-- Critical CSS inlined for performance -->
   <style>
@@ -66,7 +66,11 @@
       margin: 0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans JP, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       color: var(--text);
-      background: radial-gradient(1200px 800px at 70% 10%, #1a1511 0, #0b0b0b 60%);
+      /* Elixir purple multi-layer gradient */
+      background:
+        radial-gradient(1200px 800px at 70% 10%, rgba(139, 92, 246, 0.18) 0%, rgba(139, 92, 246, 0) 60%),
+        radial-gradient(800px 600px at 20% 80%, rgba(109, 40, 217, 0.12) 0%, rgba(109, 40, 217, 0) 60%),
+        linear-gradient(180deg, #130a2a 0%, #0b071a 100%);
       letter-spacing: .02em;
     }
 
@@ -188,7 +192,8 @@
       border-radius: 22px;
       overflow: hidden;
       border: 1px solid #ffffff1a;
-      background: radial-gradient(120% 120% at 50% 100%, #1d0f0b 0%, #0f0b0b 60%, #0b0b0b 100%);
+      /* Subtle dark purple base under flame animations */
+      background: radial-gradient(120% 120% at 50% 100%, #1a0f2b 0%, #120b22 60%, #0b0718 100%);
       box-shadow: 0 50px 120px #000000c0, inset 0 0 80px #000000cc;
       isolation: isolate;
     }
@@ -747,8 +752,8 @@
                   <stop offset="1" stop-color="#ff3c7d" />
                 </radialGradient>
                 <radialGradient id="bg" cx="50%" cy="50%" r="80%">
-                  <stop offset="0" stop-color="#1a1511" />
-                  <stop offset="1" stop-color="#0b0b0b" />
+                  <stop offset="0" stop-color="#130a2a" />
+                  <stop offset="1" stop-color="#0b071a" />
                 </radialGradient>
                 <filter id="glow">
                   <feGaussianBlur stdDeviation="3" result="coloredBlur" />

@@ -284,8 +284,9 @@
   
   .plate::before,
   .plate::after,
-  .hero-picture,
-  .hero-fallback,
+  /* keep subtle float on hero even with reduced motion */
+  /* .hero-picture, */
+  /* .hero-fallback, */
   .phoenix-wings,
   .phoenix-wings::before,
   .phoenix-wings::after,
