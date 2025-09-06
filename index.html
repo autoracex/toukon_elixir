@@ -35,7 +35,7 @@
   <meta name="theme-color" content="#160a2b" />
   <link rel="icon" href="/favicon.ico" />
   <!-- Critical CSS inlined for performance -->
-  <style>
+    <style>
     :root {
       --bg: #0b0b0b;
       --text: #e7e7e7;
@@ -256,7 +256,7 @@
       position: relative;
       z-index: 2;
       animation: phoenixFloat 6s ease-in-out infinite;
-      background: linear-gradient(135deg, #1a1511 0%, #0b0b0b 100%);
+      background: linear-gradient(135deg, #130a2a 0%, #0b071a 100%);
       will-change: transform;
     }
 
@@ -551,6 +551,8 @@
     }
   </style>
 
+  
+
   <!-- Simple View Overrides: header + image(+flame bg) + footer only -->
   <style>
     /* Hide all textual content and extra sections */
@@ -586,9 +588,9 @@
   <link rel="dns-prefetch" href="//autoracex.connpass.com">
 
   <!-- Load non-critical CSS asynchronously -->
-  <link rel="preload" href="styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="styles.min.css?v=20250906a" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
-    <link rel="stylesheet" href="styles.min.css">
+    <link rel="stylesheet" href="styles.min.css?v=20250906a">
   </noscript>
 
   <!-- Performance optimization: reduce layout shift -->
@@ -604,6 +606,20 @@
   </style>
 
   <!-- Structured Data (JSON-LD) -->
+  <!-- Force animations even when prefers-reduced-motion is enabled (per design requirement) -->
+  <style id="force-animations">
+    .hero-picture { animation: phoenixFloat var(--phoenix-float-duration) ease-in-out infinite !important; }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-picture { animation: phoenixFloat var(--phoenix-float-duration) ease-in-out infinite !important; }
+      .plate::before { animation: phoenixSwirl var(--phoenix-swirl-duration) linear infinite !important; }
+      .plate::after { animation: phoenixBreathe var(--phoenix-breathe-duration) ease-in-out infinite !important; }
+      .phoenix-wings { animation: phoenixWingFormation var(--phoenix-wing-duration) ease-out infinite !important; }
+      .phoenix-wings::before { animation: phoenixWingSpread var(--phoenix-wing-duration) ease-in-out infinite !important; }
+      .phoenix-wings::after { animation: phoenixTailFormation 6s ease-in-out infinite 1s !important; }
+      .phoenix-particles { animation: phoenixParticleEmergence var(--phoenix-particle-duration) ease-out infinite !important; }
+      .phoenix-particles::before { animation: phoenixSparkle 4s ease-in-out infinite !important; }
+    }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
