@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Performance Test - 闘魂Elixir</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #0b0b0b;
+      color: #e7e7e7;
+    }
+    .metric {
+      background: #1a1a1a;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border-left: 4px solid #ff7a1a;
+    }
+    .metric h3 {
+      margin: 0 0 10px 0;
+      color: #ff7a1a;
+    }
+    .good { border-left-color: #4ade80; }
+    .warning { border-left-color: #fbbf24; }
+    .error { border-left-color: #ef4444; }
+    .loading {
+      opacity: 0.6;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔥 闘魂Elixir Performance Test</h1>
+  <p>Testing the performance optimizations implemented in task 5.</p>
+  
+  <div id="metrics">
+    <div class="metric loading">
+      <h3>Loading Performance Metrics...</h3>
+      <p>Please wait while we analyze the optimizations...</p>
+    </div>
+  </div>
+
+  <script>
+    // Performance testing script
+    function runPerformanceTest() {
+      const metrics = [];
+      
+      // Test 1: Critical CSS Inlining
+      const hasInlineCSS = document.querySelector('style') !== null;
+      metrics.push({
+        name: 'Critical CSS Inlining',
+        status: hasInlineCSS ? 'good' : 'error',
+        message: hasInlineCSS ? 
+          '✅ Critical CSS is inlined in the head' : 
+          '❌ Critical CSS is not inlined'
+      });
+      
+      // Test 2: External CSS Loading
+      const hasAsyncCSS = document.querySelector('link[rel="preload"][as="style"]') !== null;
+      metrics.push({
+        name: 'Async CSS Loading',
+        status: hasAsyncCSS ? 'good' : 'error',
+        message: hasAsyncCSS ? 
+          '✅ Non-critical CSS is loaded asynchronously' : 
+          '❌ CSS is not loaded asynchronously'
+      });
+      
+      // Test 3: JavaScript Minification
+      const hasMinifiedJS = document.querySelector('script[src*="min.js"]') !== null;
+      metrics.push({
+        name: 'JavaScript Minification',
+        status: hasMinifiedJS ? 'good' : 'error',
+        message: hasMinifiedJS ? 
+          '✅ JavaScript is minified' : 
+          '❌ JavaScript is not minified'
+      });
+      
+      // Test 4: Resource Preloading
+      const preloadLinks = document.querySelectorAll('link[rel="preload"]').length;
+      metrics.push({
+        name: 'Resource Preloading',
+        status: preloadLinks >= 3 ? 'good' : preloadLinks > 0 ? 'warning' : 'error',
+        message: `${preloadLinks > 0 ? '✅' : '❌'} ${preloadLinks} critical resources are preloaded`
+      });
+      
+      // Test 5: DNS Prefetch
+      const dnsPrefetch = document.querySelectorAll('link[rel="dns-prefetch"]').length;
+      metrics.push({
+        name: 'DNS Prefetch',
+        status: dnsPrefetch > 0 ? 'good' : 'warning',
+        message: `${dnsPrefetch > 0 ? '✅' : '⚠️'} ${dnsPrefetch} external domains are prefetched`
+      });
+      
+      // Test 6: Image Lazy Loading
+      const lazyImages = document.querySelectorAll('img[loading="lazy"]').length;
+      metrics.push({
+        name: 'Image Lazy Loading',
+        status: lazyImages > 0 ? 'good' : 'warning',
+        message: `${lazyImages > 0 ? '✅' : '⚠️'} ${lazyImages} images have lazy loading`
+      });
+      
+      // Test 7: Layout Shift Prevention
+      const hasAspectRatio = document.querySelector('style').textContent.includes('aspect-ratio');
+      metrics.push({
+        name: 'Layout Shift Prevention',
+        status: hasAspectRatio ? 'good' : 'warning',
+        message: hasAspectRatio ? 
+          '✅ Aspect ratios defined to prevent layout shift' : 
+          '⚠️ No aspect ratio definitions found'
+      });
+      
+      // Test 8: Performance API
+      if ('performance' in window && 'getEntriesByType' in performance) {
+        const navigationTiming = performance.getEntriesByType('navigation')[0];
+        if (navigationTiming) {
+          const domContentLoaded = navigationTiming.domContentLoadedEventEnd - navigationTiming.domContentLoadedEventStart;
+          metrics.push({
+            name: 'DOM Content Loaded',
+            status: domContentLoaded < 100 ? 'good' : domContentLoaded < 300 ? 'warning' : 'error',
+            message: `${domContentLoaded < 100 ? '✅' : domContentLoaded < 300 ? '⚠️' : '❌'} DOM loaded in ${domContentLoaded.toFixed(2)}ms`
+          });
+        }
+      }
+      
+      return metrics;
+    }
+    
+    // Display results
+    function displayResults(metrics) {
+      const container = document.getElementById('metrics');
+      container.innerHTML = '';
+      
+      const summary = document.createElement('div');
+      summary.className = 'metric';
+      const passed = metrics.filter(m => m.status === 'good').length;
+      const total = metrics.length;
+      const percentage = Math.round((passed / total) * 100);
+      
+      summary.innerHTML = `
+        <h3>Performance Summary</h3>
+        <p><strong>${passed}/${total} tests passed (${percentage}%)</strong></p>
+        <p>Task 5 implementation status: ${percentage >= 80 ? '🎉 Excellent' : percentage >= 60 ? '👍 Good' : '⚠️ Needs improvement'}</p>
+      `;
+      container.appendChild(summary);
+      
+      metrics.forEach(metric => {
+        const div = document.createElement('div');
+        div.className = `metric ${metric.status}`;
+        div.innerHTML = `
+          <h3>${metric.name}</h3>
+          <p>${metric.message}</p>
+        `;
+        container.appendChild(div);
+      });
+    }
+    
+    // Run test when page loads
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const results = runPerformanceTest();
+        displayResults(results);
+      }, 100);
+    });
+  </script>
+</body>
+</html>

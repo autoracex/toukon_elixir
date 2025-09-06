@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>闘魂Elixir — Official</title>
+  <meta name="description" content="Elixir/Phoenix を中心とした技術コミュニティ「闘魂Elixir」の公式サイト。学習・創作・発表を通じて共に成長する開発者コミュニティ。初心者歓迎、定期イベント開催中。" />
+  <meta property="og:title" content="闘魂Elixir — Official" />
+  <meta property="og:description" content="Elixir/Phoenix を中心とした技術コミュニティ「闘魂Elixir」の公式サイト。学習・創作・発表を通じて共に成長する開発者コミュニティ。初心者歓迎、定期イベント開催中。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.autoracex.dev/assets/ogp.webp" />
+  <meta property="og:image:type" content="image/webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="闘魂Elixir コミュニティ - 炎から火の鳥Phoenixへの昇華を表現したビジュアル" />
+  <meta property="og:url" content="https://www.autoracex.dev/" />
+  <meta property="og:site_name" content="闘魂Elixir" />
+  <meta property="og:locale" content="ja_JP" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="闘魂Elixir — Official" />
+  <meta name="twitter:description" content="Elixir/Phoenix を中心とした技術コミュニティ「闘魂Elixir」の公式サイト。学習・創作・発表を通じて共に成長する開発者コミュニティ。初心者歓迎、定期イベント開催中。" />
+  <meta name="twitter:image" content="https://www.autoracex.dev/assets/ogp.webp" />
+  <meta name="twitter:image:alt" content="闘魂Elixir コミュニティ - 炎から火の鳥Phoenixへの昇華を表現したビジュアル" />
+  
+  <!-- Additional SEO meta tags -->
+  <meta name="keywords" content="Elixir, Phoenix, プログラミング, コミュニティ, OSS, 学習, 勉強会, 技術, 開発者" />
+  <meta name="author" content="闘魂Elixir コミュニティ" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <link rel="canonical" href="https://www.autoracex.dev/" />
+  
+  <meta name="theme-color" content="#0b0b0b" />
+  <link rel="icon" href="/favicon.ico" />
+  <!-- Critical CSS inlined for performance -->
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --text: #e7e7e7;
+      --muted: #b6b6b6;
+      --fire1: #ff5b2e;
+      --fire2: #ff9a1f;
+      --fire3: #ffd166;
+      --fire4: #ff3c7d;
+      --accent: #ff7a1a;
+      --ring: #ffed9e33;
+      --phoenix-swirl-duration: 22s;
+      --phoenix-breathe-duration: 5.4s;
+      --phoenix-wing-duration: 8s;
+      --phoenix-particle-duration: 12s;
+      --phoenix-float-duration: 6s;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans JP, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 70% 10%, #1a1511 0, #0b0b0b 60%);
+      letter-spacing: .02em;
+    }
+
+    a {
+      color: var(--text);
+      text-decoration: none
+    }
+
+    a:hover {
+      opacity: .9
+    }
+
+    .wrap {
+      min-height: 100dvh;
+      display: grid;
+      grid-template-rows: auto 1fr auto
+    }
+
+    header,
+    main,
+    footer {
+      padding: clamp(16px, 2vw, 28px)
+    }
+
+    header {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center
+    }
+
+    .logo {
+      width: 28px;
+      height: 28px;
+      filter: drop-shadow(0 0 6px var(--ring))
+    }
+
+    .title {
+      font-size: clamp(18px, 3vw, 22px);
+      font-weight: 700;
+      letter-spacing: .06em
+    }
+
+    .nav {
+      display: flex;
+      gap: 14px;
+      align-items: center
+    }
+
+    .btn {
+      padding: .6rem .9rem;
+      border: 1px solid #ffffff22;
+      border-radius: 12px;
+      background: #131313;
+      backdrop-filter: saturate(160%) blur(4px);
+      box-shadow: 0 10px 30px #00000066;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: #ffffff40;
+      box-shadow: 0 12px 36px #00000088
+    }
+
+    .hero {
+      display: grid;
+      place-items: center;
+      padding: clamp(16px, 2vw, 24px)
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      display: grid;
+      gap: 28px
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .4rem .7rem;
+      border: 1px solid #ffffff22;
+      border-radius: 999px;
+      font-size: .85rem;
+      color: var(--muted);
+      background: #111111;
+      box-shadow: inset 0 0 0 1px #000000
+    }
+
+    h1 {
+      font-size: clamp(28px, 6vw, 56px);
+      line-height: 1.06;
+      margin: 0;
+      letter-spacing: .02em
+    }
+
+    .lead {
+      font-size: clamp(16px, 2.4vw, 20px);
+      color: #e9e7e3;
+      opacity: .95
+    }
+
+    .plate {
+      position: relative;
+      display: grid;
+      place-items: center;
+      margin: 8px auto;
+      width: min(92vw, 980px);
+      aspect-ratio: 16 / 9;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid #ffffff1a;
+      background: radial-gradient(120% 120% at 50% 100%, #1d0f0b 0%, #0f0b0b 60%, #0b0b0b 100%);
+      box-shadow: 0 50px 120px #000000c0, inset 0 0 80px #000000cc;
+      isolation: isolate;
+    }
+
+    .hero-picture {
+      position: relative;
+      z-index: 2;
+      max-width: min(86%, 840px);
+      width: 100%;
+      margin: 0;
+      animation: phoenixFloat var(--phoenix-float-duration) ease-in-out infinite;
+      will-change: transform;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: auto;
+      border-radius: 18px;
+      border: 1px solid #ffffff10;
+      box-shadow: 0 18px 80px #0009, 0 0 0 6px #ffffff10;
+      display: block;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .hero-image:not(.loaded) {
+      opacity: 0.7;
+      filter: blur(1px);
+    }
+
+    .hero-image.loaded {
+      opacity: 1;
+      filter: none;
+    }
+
+    .hero-picture::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 40px;
+      height: 40px;
+      margin: -20px 0 0 -20px;
+      border: 3px solid #ffffff20;
+      border-top: 3px solid var(--accent);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      z-index: 3;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .hero-picture:not(.loaded)::before {
+      opacity: 1;
+    }
+
+    .hero-fallback {
+      position: relative;
+      z-index: 2;
+      animation: phoenixFloat 6s ease-in-out infinite;
+      background: linear-gradient(135deg, #1a1511 0%, #0b0b0b 100%);
+      will-change: transform;
+    }
+
+    .copy {
+      display: grid;
+      gap: 12px
+    }
+
+    .motto {
+      color: #f6e7c8;
+      font-size: clamp(14px, 2.2vw, 18px);
+      opacity: .9
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: .9rem;
+      border-top: 1px solid #ffffff14
+    }
+
+    .foot-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap
+    }
+
+    .pill {
+      padding: .4rem .7rem;
+      border: 1px solid #ffffff22;
+      border-radius: 999px;
+      background: #121212
+    }
+
+    .mono {
+      font-variant-ligatures: none;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+    }
+
+    .hidden {
+      display: none
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0
+    }
+
+    /* Focus management and keyboard navigation */
+    a:focus,
+    .btn:focus,
+    .pill:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-color: var(--accent)
+    }
+
+    a:focus-visible,
+    .btn:focus-visible,
+    .pill:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px
+    }
+
+    /* Skip to main content link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 6px;
+      background: var(--accent);
+      color: #000;
+      padding: 8px;
+      text-decoration: none;
+      border-radius: 4px;
+      z-index: 1000;
+      transition: top 0.3s
+    }
+
+    .skip-link:focus {
+      top: 6px
+    }
+  </style>
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="assets/hero.webp" as="image" type="image/webp">
+  <link rel="preload" href="assets/hero.png" as="image" type="image/png">
+  <link rel="preload" href="script.min.js" as="script">
+
+  <!-- DNS prefetch for external resources -->
+  <link rel="dns-prefetch" href="//github.com">
+  <link rel="dns-prefetch" href="//autoracex.connpass.com">
+
+  <!-- Load non-critical CSS asynchronously -->
+  <link rel="preload" href="styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="styles.min.css">
+  </noscript>
+
+  <!-- Performance optimization: reduce layout shift -->
+  <style>
+    /* Prevent layout shift during CSS loading */
+    .hero-image {
+      aspect-ratio: 16/9;
+    }
+
+    .plate {
+      contain: layout style paint;
+    }
+  </style>
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "闘魂Elixir",
+    "alternateName": "Toukon Elixir",
+    "url": "https://www.autoracex.dev/",
+    "logo": "https://www.autoracex.dev/assets/favicon.png",
+    "image": "https://www.autoracex.dev/assets/ogp.webp",
+    "description": "闘魂Elixir コミュニティの公式ランディングページ。闘魂とは己に打ち克つこと。そして闘いを通じて己の魂を磨いていくこと。",
+    "foundingDate": "2023",
+    "sameAs": [
+      "https://github.com/autoracex/toukon_elixir",
+      "https://autoracex.connpass.com/"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "community support",
+      "url": "https://github.com/autoracex/toukon_elixir"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Japan"
+    },
+    "knowsAbout": [
+      "Elixir",
+      "Phoenix Framework",
+      "プログラミング",
+      "オープンソース",
+      "技術コミュニティ",
+      "ソフトウェア開発"
+    ],
+    "memberOf": {
+      "@type": "Organization",
+      "name": "Elixir コミュニティ"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "闘魂Elixir — Official",
+    "url": "https://www.autoracex.dev/",
+    "description": "Elixir / Phoenix を中心に学び、創り、発表するコミュニティです。アイデアの炎をコードに変え、挑む仲間が集い、読み、書き、創る場所。",
+    "inLanguage": "ja-JP",
+    "isPartOf": {
+      "@type": "Organization",
+      "name": "闘魂Elixir"
+    },
+    "about": {
+      "@type": "Thing",
+      "name": "Elixir プログラミングコミュニティ",
+      "description": "Elixir と Phoenix フレームワークを中心とした技術学習コミュニティ"
+    },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "developers, programmers, students"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "闘魂Elixir イベント",
+    "description": "闘魂Elixirコミュニティが開催する定期的な技術イベント・勉強会",
+    "organizer": {
+      "@type": "Organization",
+      "name": "闘魂Elixir",
+      "url": "https://www.autoracex.dev/"
+    },
+    "location": {
+      "@type": "VirtualLocation",
+      "url": "https://autoracex.connpass.com/"
+    },
+    "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "inLanguage": "ja-JP",
+    "about": [
+      "Elixir",
+      "Phoenix",
+      "プログラミング",
+      "技術発表"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">メインコンテンツにスキップ</a>
+  <div class="wrap">
+    <header role="banner">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 64 64" aria-label="闘魂Elixir Phoenix ロゴ" role="img">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#ff5b2e" />
+              <stop offset="1" stop-color="#ffd166" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#g)"
+            d="M32 8c7 8 14 12 22 12-4 5-8 8-12 10 5 1 9 5 12 10-9-2-17-7-22-14-5 7-13 12-22 14 3-5 7-9 12-10-4-2-8-5-12-10 8 0 15-4 22-12z" />
+        </svg>
+        <div class="title">闘魂Elixir</div>
+      </div>
+      <nav class="nav" role="navigation" aria-label="メインナビゲーション">
+        <a class="btn" href="https://github.com/autoracex/toukon_elixir" target="_blank" rel="noopener"
+          aria-label="GitHub リポジトリを新しいタブで開く">GitHub</a>
+        <a class="btn" href="https://autoracex.connpass.com/" target="_blank" rel="noopener"
+          aria-label="イベント情報を新しいタブで開く">Events</a>
+      </nav>
+    </header>
+
+    <main role="main" id="main-content">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <span class="tag" role="text" aria-label="コミュニティタグ">Elixir / Phoenix / OSS / 学習コミュニティ</span>
+          <h1 id="hero-title">燃える闘魂で創る、<br />Elixir時代のものづくり</h1>
+          <p class="lead">アイデアの炎をコードに変える。挑む仲間が集い、読み、書き、創る場所。</p>
+
+          <!-- Image plate -->
+          <figure class="plate" aria-labelledby="hero-image-caption" role="img">
+            <!-- Phoenix formation animation layers -->
+            <div class="phoenix-wings" aria-hidden="true" role="presentation"></div>
+            <div class="phoenix-particles" aria-hidden="true" role="presentation"></div>
+            <picture class="hero-picture">
+              <!-- WebP for modern browsers with responsive sizes -->
+              <source srcset="assets/hero.webp" type="image/webp" media="(min-width: 1px)">
+              <!-- PNG fallback for older browsers -->
+              <img class="hero-image" src="assets/hero.png"
+                alt="炎で形作られた火の鳥 Phoenix と『闘魂Elixir』のコンセプトアート。燃える炎のエフェクトに包まれた美しい Phoenix の姿" loading="lazy"
+                decoding="async" fetchpriority="high" onerror="handleImageError(this)" onload="handleImageLoad(this)">
+            </picture>
+            <figcaption id="hero-image-caption" class="sr-only">闘魂Elixirコミュニティのシンボルである火の鳥Phoenixのメインビジュアル</figcaption>
+            <!-- 画像読み込みエラー時のフォールバック -->
+            <svg class="hero-fallback" viewBox="0 0 1200 675" width="86%"
+              style="max-width:840px; border-radius:18px; border:1px solid #ffffff10; box-shadow:0 18px 80px #0009, 0 0 0 6px #ffffff10; display:none;"
+              role="img" aria-labelledby="fallback-title fallback-desc" focusable="false">
+              <defs>
+                <radialGradient id="rg" cx="50%" cy="70%" r="70%">
+                  <stop offset="0" stop-color="#ffd166" />
+                  <stop offset="0.4" stop-color="#ff9a1f" />
+                  <stop offset="1" stop-color="#ff3c7d" />
+                </radialGradient>
+                <radialGradient id="bg" cx="50%" cy="50%" r="80%">
+                  <stop offset="0" stop-color="#1a1511" />
+                  <stop offset="1" stop-color="#0b0b0b" />
+                </radialGradient>
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                  <feMerge>
+                    <feMergeNode in="coloredBlur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+              <rect x="0" y="0" width="1200" height="675" fill="url(#bg)" />
+              <g fill="url(#rg)" filter="url(#glow)">
+                <!-- Enhanced Phoenix shape with more detail -->
+                <path
+                  d="M600 110c90 100 210 150 320 150-80 90-190 120-275 120 70 10 160 50 225 130-170-30-290-110-270-210-40 90-170 150-320 180 70-90 170-120 240-130-110-30-190-80-245-160 130 0 230-40 325-80z"
+                  opacity=".9" />
+                <!-- Additional flame details -->
+                <circle cx="600" cy="300" r="8" opacity=".7" />
+                <circle cx="580" cy="280" r="6" opacity=".6" />
+                <circle cx="620" cy="285" r="5" opacity=".6" />
+                <circle cx="590" cy="320" r="4" opacity=".5" />
+                <circle cx="610" cy="325" r="4" opacity=".5" />
+              </g>
+              <title id="fallback-title">闘魂 Phoenix</title>
+              <desc id="fallback-desc">画像の読み込みに失敗しました。炎で形作られた火の鳥Phoenixのプレースホルダー画像です。</desc>
+              <text x="50%" y="88%" text-anchor="middle" fill="#f6e7c8" font-size="32"
+                style="letter-spacing:.1em; opacity:.8">闘魂 Phoenix</text>
+              <text x="50%" y="95%" text-anchor="middle" fill="#b6b6b6" font-size="18"
+                style="letter-spacing:.05em; opacity:.6">画像を読み込み中...</text>
+            </svg>
+          </figure>
+
+          <div class="copy">
+            <p class="motto" role="text" aria-label="闘魂の理念">「闘魂とは己に打ち克つこと。そして闘いを通じて己の魂を磨いていくこと。」</p>
+            <nav class="links" role="navigation" aria-label="ページ内ナビゲーション">
+              <a class="pill" href="#about" aria-describedby="about-desc">About</a>
+              <a class="pill" href="#events" aria-describedby="events-desc">Events</a>
+              <a class="pill" href="#code" aria-describedby="code-desc">Code of Conduct</a>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" style="max-width:920px; margin: 40px auto 0; display:grid; gap:14px;"
+        aria-labelledby="about-heading">
+        <h2 id="about-heading" style="margin:.2rem 0; font-size:clamp(20px,3.4vw,28px)">闘魂Elixirとは</h2>
+        <div id="about-desc" style="color:#e0dedb; display:grid; gap:12px;">
+          <p>Elixir / Phoenix を中心に学び、創り、発表するコミュニティです。</p>
+          <p><strong>私たちの目的：</strong>アイデアの炎をコードに変え、挑む仲間が集い、読み、書き、創る場所を提供すること。</p>
+          <p><strong>私たちの価値：</strong></p>
+          <ul style="margin:0; padding-left:1.1em; line-height:1.8" role="list">
+            <li role="listitem"><strong>学びの共有</strong> - コードと文章で記録し、成果を世界へ届ける</li>
+            <li role="listitem"><strong>包括性</strong> - 初心者歓迎。経験者は設計とレビューで火力を足す</li>
+            <li role="listitem"><strong>継続的成長</strong> - 闘魂とは己に打ち克つこと。闘いを通じて己の魂を磨く</li>
+            <li role="listitem"><strong>品質重視</strong> - 速度より品位。丁寧なものづくりを大切にする</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="events" style="max-width:920px; margin: 24px auto 0; display:grid; gap:14px;"
+        aria-labelledby="events-heading">
+        <h2 id="events-heading" style="margin:.2rem 0; font-size:clamp(20px,3.4vw,28px)">イベント・参加方法</h2>
+        <div id="events-desc" style="color:#e0dedb; display:grid; gap:12px;">
+          <p>闘魂Elixirコミュニティでは定期的にイベントを開催しています。</p>
+          <div style="padding: 16px; border: 1px solid #ffffff22; border-radius: 12px; background: #131313;">
+            <p style="margin: 0 0 8px 0; font-weight: 600;">📅 イベント情報</p>
+            <p style="margin: 0 0 12px 0; font-size: 0.9em; color: #b6b6b6;">最新のイベント情報は autoracex connpass ページでご確認ください</p>
+            <a href="https://autoracex.connpass.com/" target="_blank" rel="noopener" 
+               style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--accent); color: #000; border-radius: 8px; font-weight: 600; text-decoration: none; transition: transform 0.2s ease;"
+               onmouseover="this.style.transform='translateY(-1px)'" 
+               onmouseout="this.style.transform='translateY(0)'"
+               aria-label="autoracex connpass イベントページを新しいタブで開く">
+              🔥 イベントに参加する
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15,3 21,3 21,9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+          <div>
+            <p style="margin: 0 0 8px 0; font-weight: 600;">参加方法</p>
+            <ul style="margin:0; padding-left:1.1em; line-height:1.8" role="list">
+              <li role="listitem">GitHub の <span class="mono">README</span> を読み、PR で自己紹介。小さく始めて早く出す。</li>
+              <li role="listitem">Qiita / Zenn で学びを公開。リンクを追加。</li>
+              <li role="listitem">月1 LT で成果共有。5分でも良い。挑む頻度が火力。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="code" style="max-width:920px; margin: 24px auto 0; display:grid; gap:14px;"
+        aria-labelledby="code-heading">
+        <h2 id="code-heading" style="margin:.2rem 0; font-size:clamp(20px,3.4vw,28px)">行動規範</h2>
+        <div id="code-desc" style="color:#e0dedb; display:grid; gap:12px;">
+          <p>闘魂Elixirコミュニティでは、すべてのメンバーが安心して参加できる環境を大切にしています。</p>
+          <ul style="margin:0; padding-left:1.1em; line-height:1.8" role="list">
+            <li role="listitem"><strong>尊重と誠実</strong> - すべてのメンバーを尊重し、誠実なコミュニケーションを心がける</li>
+            <li role="listitem"><strong>学びの共有</strong> - 知識や経験を積極的に共有し、共に成長する</li>
+            <li role="listitem"><strong>建設的な議論</strong> - 誹謗中傷は禁止。建設的で前向きな議論を推進する</li>
+            <li role="listitem"><strong>知的財産の尊重</strong> - ライセンスとクレジットを適切に守る</li>
+            <li role="listitem"><strong>品質重視</strong> - 速度より品位。丁寧で質の高いものづくりを目指す</li>
+          </ul>
+          <p style="font-size: 0.9em; color: #b6b6b6; margin-top: 8px;">詳細な行動規範は GitHub リポジトリでご確認ください。</p>
+        </div>
+      </section>
+    </main>
+
+    <footer role="contentinfo">
+      <div class="foot-grid">
+        <div>© <span id="year"></span> 闘魂Elixir</div>
+        <nav class="links" role="navigation" aria-label="フッターナビゲーション">
+          <a href="/CREDITS.html" aria-label="クレジット情報">Credits</a>
+          <a href="/LICENSE.html" aria-label="ライセンス情報">License</a>
+        </nav>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Load minified JavaScript -->
+  <script src="script.min.js" defer></script>
+</body>
+
+</html>

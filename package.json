@@ -1,0 +1,30 @@
+{
+  "name": "toukon-elixir-landing",
+  "version": "1.0.0",
+  "description": "闘魂Elixir コミュニティの公式ランディングページ",
+  "main": "index.html",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "python3 -m http.server 8000",
+    "serve": "python3 -m http.server 8000",
+    "test": "node integration-test.js",
+    "test:lighthouse": "node lighthouse-test.js",
+    "test:browser": "node browser-test.js",
+    "test:deployment": "node deployment-test.js"
+  },
+  "keywords": [
+    "elixir",
+    "phoenix",
+    "community",
+    "landing-page",
+    "performance"
+  ],
+  "author": "闘魂Elixir Community",
+  "license": "MIT",
+  "devDependencies": {
+    "lighthouse": "^12.8.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
