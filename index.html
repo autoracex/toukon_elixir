@@ -9,12 +9,12 @@
   <meta property="og:title" content="闘魂Elixir — Official" />
   <meta property="og:description" content="Elixir/Phoenix を中心とした技術コミュニティ「闘魂Elixir」の公式サイト。学習・創作・発表を通じて共に成長する開発者コミュニティ。初心者歓迎、定期イベント開催中。" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://www.autoracex.dev/assets/ogp.webp" />
+  <meta property="og:image" content="https://toukon-elixir.autoracex.dev/assets/ogp.webp" />
   <meta property="og:image:type" content="image/webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="闘魂Elixir コミュニティ - 炎から火の鳥Phoenixへの昇華を表現したビジュアル" />
-  <meta property="og:url" content="https://www.autoracex.dev/" />
+  <meta property="og:url" content="https://toukon-elixir.autoracex.dev/" />
   <meta property="og:site_name" content="闘魂Elixir" />
   <meta property="og:locale" content="ja_JP" />
   
@@ -22,7 +22,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="闘魂Elixir — Official" />
   <meta name="twitter:description" content="Elixir/Phoenix を中心とした技術コミュニティ「闘魂Elixir」の公式サイト。学習・創作・発表を通じて共に成長する開発者コミュニティ。初心者歓迎、定期イベント開催中。" />
-  <meta name="twitter:image" content="https://www.autoracex.dev/assets/ogp.webp" />
+  <meta name="twitter:image" content="https://toukon-elixir.autoracex.dev/assets/ogp.webp" />
   <meta name="twitter:image:alt" content="闘魂Elixir コミュニティ - 炎から火の鳥Phoenixへの昇華を表現したビジュアル" />
   
   <!-- Additional SEO meta tags -->
@@ -30,7 +30,7 @@
   <meta name="author" content="闘魂Elixir コミュニティ" />
   <meta name="robots" content="index, follow" />
   <meta name="googlebot" content="index, follow" />
-  <link rel="canonical" href="https://www.autoracex.dev/" />
+  <link rel="canonical" href="https://toukon-elixir.autoracex.dev/" />
   
   <meta name="theme-color" content="#0b0b0b" />
   <link rel="icon" href="/favicon.ico" />
@@ -546,6 +546,31 @@
     }
   </style>
 
+  <!-- Simple View Overrides: header + image(+flame bg) + footer only -->
+  <style>
+    /* Hide all textual content and extra sections */
+    .skip-link { display: none !important; }
+    .hero .tag,
+    .hero h1,
+    .hero .lead,
+    .hero .copy,
+    nav.links,
+    section#about,
+    section#events,
+    section#code { display: none !important; }
+
+    /* Ensure plate (image container) and flame animations stay visible */
+    .hero .plate { display: grid !important; }
+    .hero .phoenix-wings,
+    .hero .phoenix-particles { display: block !important; }
+
+    .hero .hero-inner {
+      text-align: center;
+      justify-items: center;
+      align-items: center;
+    }
+  </style>
+
   <!-- Preload critical resources -->
   <link rel="preload" href="assets/hero.webp" as="image" type="image/webp">
   <link rel="preload" href="assets/hero.png" as="image" type="image/png">
@@ -580,9 +605,9 @@
     "@type": "Organization",
     "name": "闘魂Elixir",
     "alternateName": "Toukon Elixir",
-    "url": "https://www.autoracex.dev/",
-    "logo": "https://www.autoracex.dev/assets/favicon.png",
-    "image": "https://www.autoracex.dev/assets/ogp.webp",
+    "url": "https://toukon-elixir.autoracex.dev/",
+    "logo": "https://toukon-elixir.autoracex.dev/assets/favicon.png",
+    "image": "https://toukon-elixir.autoracex.dev/assets/ogp.webp",
     "description": "闘魂Elixir コミュニティの公式ランディングページ。闘魂とは己に打ち克つこと。そして闘いを通じて己の魂を磨いていくこと。",
     "foundingDate": "2023",
     "sameAs": [
@@ -618,7 +643,7 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "闘魂Elixir — Official",
-    "url": "https://www.autoracex.dev/",
+    "url": "https://toukon-elixir.autoracex.dev/",
     "description": "Elixir / Phoenix を中心に学び、創り、発表するコミュニティです。アイデアの炎をコードに変え、挑む仲間が集い、読み、書き、創る場所。",
     "inLanguage": "ja-JP",
     "isPartOf": {
@@ -646,7 +671,7 @@
     "organizer": {
       "@type": "Organization",
       "name": "闘魂Elixir",
-      "url": "https://www.autoracex.dev/"
+      "url": "https://toukon-elixir.autoracex.dev/"
     },
     "location": {
       "@type": "VirtualLocation",
@@ -666,7 +691,7 @@
 </head>
 
 <body>
-  <a href="#main-content" class="skip-link">メインコンテンツにスキップ</a>
+  
   <div class="wrap">
     <header role="banner">
       <div class="brand">
@@ -834,10 +859,6 @@
     <footer role="contentinfo">
       <div class="foot-grid">
         <div>© <span id="year"></span> 闘魂Elixir</div>
-        <nav class="links" role="navigation" aria-label="フッターナビゲーション">
-          <a href="/CREDITS.html" aria-label="クレジット情報">Credits</a>
-          <a href="/LICENSE.html" aria-label="ライセンス情報">License</a>
-        </nav>
       </div>
     </footer>
   </div>
