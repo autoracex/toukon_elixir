@@ -581,17 +581,12 @@
   <!-- Preload critical resources -->
   <link rel="preload" href="assets/hero.webp" as="image" type="image/webp">
   <link rel="preload" href="assets/hero.png" as="image" type="image/png">
-  <link rel="preload" href="script.min.js" as="script">
 
   <!-- DNS prefetch for external resources -->
   <link rel="dns-prefetch" href="//github.com">
   <link rel="dns-prefetch" href="//autoracex.connpass.com">
 
-  <!-- Load non-critical CSS asynchronously -->
-  <link rel="preload" href="styles.min.css?v=20250906a" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="styles.min.css?v=20250906a">
-  </noscript>
+  <!-- Note: external CSS/JS disabled to avoid 404 on Pages -->
 
   <!-- Performance optimization: reduce layout shift -->
   <style>
@@ -754,7 +749,7 @@
               <!-- PNG fallback for older browsers -->
               <img class="hero-image loaded" src="assets/hero.png"
                 alt="炎で形作られた火の鳥 Phoenix と『闘魂Elixir』のコンセプトアート。燃える炎のエフェクトに包まれた美しい Phoenix の姿" loading="eager"
-                decoding="async" fetchpriority="high" onerror="handleImageError(this)" onload="handleImageLoad(this)">
+                decoding="async" fetchpriority="high">
             </picture>
             <figcaption id="hero-image-caption" class="sr-only">闘魂Elixirコミュニティのシンボルである火の鳥Phoenixのメインビジュアル</figcaption>
             <!-- 画像読み込みエラー時のフォールバック -->
@@ -884,8 +879,7 @@
     </footer>
   </div>
 
-  <!-- Load minified JavaScript -->
-  <script src="script.min.js" defer></script>
+  <!-- No external JS; CSS-only animations -->
 </body>
 
 </html>
