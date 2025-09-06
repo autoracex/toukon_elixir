@@ -213,14 +213,15 @@
       transition: opacity 0.3s ease-in-out;
     }
 
-    .hero-image:not(.loaded) {
-      opacity: 0.7;
-      filter: blur(1px);
-    }
-
-    .hero-image.loaded {
+    .hero-image {
       opacity: 1;
       filter: none;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .hero-image.loading {
+      opacity: 0.7;
+      filter: blur(1px);
     }
 
     .hero-picture::before {
@@ -238,10 +239,12 @@
       z-index: 3;
       opacity: 0;
       transition: opacity 0.3s ease;
+      display: none;
     }
 
-    .hero-picture:not(.loaded)::before {
+    .hero-picture.loading::before {
       opacity: 1;
+      display: block;
     }
 
     .hero-fallback {
@@ -472,6 +475,12 @@
       }
     }
 
+    /* Spin animation for loading spinner */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
     /* Critical plate animation effects */
     .plate::before {
       content: "";
@@ -693,12 +702,12 @@
             <!-- Phoenix formation animation layers -->
             <div class="phoenix-wings" aria-hidden="true" role="presentation"></div>
             <div class="phoenix-particles" aria-hidden="true" role="presentation"></div>
-            <picture class="hero-picture">
+            <picture class="hero-picture loaded">
               <!-- WebP for modern browsers with responsive sizes -->
               <source srcset="assets/hero.webp" type="image/webp" media="(min-width: 1px)">
               <!-- PNG fallback for older browsers -->
-              <img class="hero-image" src="assets/hero.png"
-                alt="炎で形作られた火の鳥 Phoenix と『闘魂Elixir』のコンセプトアート。燃える炎のエフェクトに包まれた美しい Phoenix の姿" loading="lazy"
+              <img class="hero-image loaded" src="assets/hero.png"
+                alt="炎で形作られた火の鳥 Phoenix と『闘魂Elixir』のコンセプトアート。燃える炎のエフェクトに包まれた美しい Phoenix の姿" loading="eager"
                 decoding="async" fetchpriority="high" onerror="handleImageError(this)" onload="handleImageLoad(this)">
             </picture>
             <figcaption id="hero-image-caption" class="sr-only">闘魂Elixirコミュニティのシンボルである火の鳥Phoenixのメインビジュアル</figcaption>
